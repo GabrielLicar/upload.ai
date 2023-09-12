@@ -1,4 +1,6 @@
 import { FileVideo, Github, Upload, Wand2 } from "lucide-react";
+import { ModeToggle } from "./components/mode-toggle";
+import { ThemeProvider } from "./components/theme-provider";
 import { Button } from "./components/ui/button";
 import { Label } from "./components/ui/label";
 import {
@@ -13,8 +15,8 @@ import { Slider } from "./components/ui/slider";
 import { Textarea } from "./components/ui/textarea";
 export function App() {
   return (
-    <>
-      <div className="min-h-screen flex flex-col ">
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      <div className="min-h-screen flex flex-col">
         <header className="px-6 py-3 flex items-center justify-between border-b">
           <h1 className="text-xl font-bold">upload.ai</h1>
 
@@ -24,6 +26,8 @@ export function App() {
             </span>
 
             <Separator orientation="vertical" className="h-6" />
+
+            <ModeToggle />
 
             <Button variant={"outline"}>
               <Github className="w-4 h-4 mr-2" />
@@ -143,6 +147,6 @@ export function App() {
           </aside>
         </main>
       </div>
-    </>
+    </ThemeProvider>
   );
 }
